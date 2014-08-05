@@ -6,8 +6,8 @@
 install
 
 # Install from a friendly mirror and add updates
-url --url http://mirror.rackspace.com/CentOS/7.0.1406/os/x86_64/
-repo --name=centos-updates --mirrorlist=http://mirrorlist.centos.org/?release=7.0.1406&arch=x86_64&repo=updates
+url --url http://mirror.centos.org/centos/7/os/x86_64/
+repo --name=centos-updates --mirrorlist=http://mirrorlist.centos.org/?release=7&arch=x86_64&repo=updates
 
 # Language and keyboard setup
 lang en_US.UTF-8
@@ -20,6 +20,7 @@ keyboard us
 
 # for DHCP:
 network --bootproto=dhcp --device=eth0 --onboot=on
+network --bootproto=dhcp --device=eth1 --onboot=on
 
 firewall --enabled --ssh
 
@@ -30,7 +31,7 @@ timezone --utc Etc/UTC
 rootpw --lock
 # if you want to preset the root password in a public kickstart file, use SHA512crypt e.g.
 # rootpw --iscrypted $6$9dC4m770Q1o$FCOvPxuqc1B22HM21M5WuUfhkiQntzMuAV7MY0qfVcvhwNQ2L86PcnDWfjDd12IFxWtRiTuvO/niB0Q3Xpf2I.
-user --name=centos --password=Asdfqwerty --plaintext --gecos="CentOS User" --shell=/bin/bash --groups=user,wheel
+#user --name=centos --password=Asdfqwerty --plaintext --gecos="CentOS User" --shell=/bin/bash --groups=user,wheel
 # if you want to preset the user password in a public kickstart file, use SHA512crypt e.g.
 # user --name=centos --password=$6$9dC4m770Q1o$FCOvPxuqc1B22HM21M5WuUfhkiQntzMuAV7MY0qfVcvhwNQ2L86PcnDWfjDd12IFxWtRiTuvO/niB0Q3Xpf2I. --iscrypted --gecos="CentOS User" --shell=/bin/bash --groups=user,wheel
 authconfig --enableshadow --passalgo=sha512
