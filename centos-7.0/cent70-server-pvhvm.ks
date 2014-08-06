@@ -6,7 +6,7 @@
 install
 
 # Install from a friendly mirror and add updates
-url --url http://mirror.centos.org/centos/7/os/x86_64/
+url --url http://mirror.centos.org/centos/7/os/x86_64
 repo --name=centos-updates --mirrorlist=http://mirrorlist.centos.org/?release=7&arch=x86_64&repo=updates
 
 # Language and keyboard setup
